@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ammar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: grey;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: black;
+            color: white;
+            padding: 5px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%%;
+            height:70%;
+           
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <h1><center>Movie Recommendation System</center></h1>
+        <input type="input" placeholder="Write The Movie Name To Get Suggestion" id="input" name="input" required>
+        <button type="submit">Recommend</button> <br><br>
+        <center><h1>Trending</h1>
+         <h2>   {% for i in pre %}
+           [ {{i}} ], 
+            {% endfor %}
+            <br>
+        <label for="input"></label>
+       
+       <center>
+            {% for i in post %}
+              [ {{i}} ], 
+            {% endfor %} </center></h2>  
+       
+        
+        
+
+    </form>
+
+</body>
+</html>
